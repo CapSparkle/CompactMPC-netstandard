@@ -6,7 +6,10 @@ namespace CompactMPC.Cryptography
     {
         public static byte[] GetBytes(int numberOfBytes)
         {
-            return System.Security.Cryptography.RandomNumberGenerator.GetBytes(numberOfBytes);
+            byte[] bytes = new byte[numberOfBytes];
+            System.Security.Cryptography.RandomNumberGenerator.Create().GetBytes(bytes);
+
+            return bytes;
         }
 
         public static BitArray GetBits(int numberOfBits)
